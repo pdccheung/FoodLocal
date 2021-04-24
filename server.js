@@ -25,5 +25,4 @@ app.get('/*', function(req, res) {
     res.sendFile(path.join(__dirname, 'build', 'index.html'));
   });
 
-
-  
+  app.use('/api/users', require('./routes/api/users'));
