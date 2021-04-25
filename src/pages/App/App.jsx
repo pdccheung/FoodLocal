@@ -7,6 +7,8 @@ import UserFood from "../UserFoodPage/UserFood";
 import NewFood from "../NewFoodPage/NewFood";
 import Header from "../../components/Header/Header";
 import Footer from "../../components/Footer/Footer";
+import HomePage from "../../pages/HomePage/Home"
+
 
 export default class App extends Component {
   state = {
@@ -30,7 +32,10 @@ export default class App extends Component {
       <>
         <Header />
         <main className="py-3">
-          <Container>
+          <Container> 
+           <HomePage />
+
+
             {" "}
             {this.state.user ? (
               <Switch>
