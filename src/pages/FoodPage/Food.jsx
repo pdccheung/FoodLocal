@@ -4,13 +4,11 @@ import { Link } from "react-router-dom"
 
 
 class Food extends Component {
-
-
     render() {  
         // modifiy this to show individual food item
-        const FoodItem = ({match}) => (
-        <h1>Food id is: {match.params.id}</h1>
-      );
+    //     const FoodItem = ({match}) => (
+    //     <h1>Food id is: {match.params.id}</h1>
+    //   );
     //   mod the above
         return(
             <div>
