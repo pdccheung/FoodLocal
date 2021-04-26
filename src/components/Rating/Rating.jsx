@@ -13,4 +13,8 @@ const Rating = (props) => {
     )
 }
 
+Rating.defaultProps = {
+    color: "#f58105"
+}
+
 export default Rating

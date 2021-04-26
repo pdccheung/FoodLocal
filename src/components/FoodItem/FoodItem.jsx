@@ -20,7 +20,6 @@ const FoodItem = (props) => {
           <Rating
             value={props.food.rating}
             description={props.food.description}
-            color="orange"
           />
         </Card.Text>
       </Card.Body>
