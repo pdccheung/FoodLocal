@@ -4,26 +4,25 @@ const Restaurant = require('../models/restaurant')
 const User = require('../models/user')
 
 const foodSchema = new Schema({
-    name: String,
-    rating: Number,
+    name: {type: String, required: true},
+    rating: {type: Number, required: true, default: 0},
     restaurant: { type: Schema.Types.ObjectId, ref: 'Restaurant' },
     user: { type: Schema.Types.ObjectId, ref: 'User' },
+    price: {type: Number, required: true, default: 0},
+    description: {type: String, default: "delicious"},
 })
 
 
 const imageSchema = new Schema({
     url: {
-        type: string,
+        type: String,
         required: true,
     },
-    foodID: {
+    food: {
         type: Schema.Types.ObjectId, ref: 'Food',
         required: true,
     }
 })
 
 let Image = mongoose.model('Image', imageSchema)
-let Food = mongoose.model('Food', foodSchema)
-
-module.exports.Food = Food;
-module.exports.Image = Image;
+module.exports = mongoose.model('Food', foodSchema)

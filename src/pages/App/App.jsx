@@ -29,6 +29,7 @@ export default class App extends Component {
 
   }
 
+  // fetch food data from mongoose db
   getFoods = async () => {
     await fetch("/api/foods").then((res) => res.json()).then(data => this.setState({foods: data}))
   }
@@ -44,9 +45,10 @@ export default class App extends Component {
               path="/food/:id"
               render={(props) => <Food {...props} foods={this.state.foods} />}
             />
+
             {this.state.user ? (
               <Switch>
-                <Route path="/" render={(props) => <HomePage {...props} />} />
+                <Route exact path="/" render={(props) => <HomePage {...props} foods={this.state.foods} />} />
                 {/* route for Food is not needed for now, as Food/:id will serve the component */}
                 {/* <Route path="/food" render={(props) => <Food {...props} />} /> */}
                 <Route
@@ -56,7 +58,7 @@ export default class App extends Component {
                 />
                 <Route
                   path="/userfood/new"
-                  render={(props) => <NewFood {...props} />}
+                  render={(props) => <NewFood {...props} getFoods={this.getFoods} />}
                 />
                 {/* and in case nothing matches, we redirect: */}
                 <Redirect to="/food" />
