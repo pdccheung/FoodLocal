@@ -2,18 +2,13 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { Row, Col, Image, ListGroup} from "react-bootstrap";
 import Rating from "../../components/Rating/Rating";
-// import foods from "../../Foodlist"
+
 
 
 const Food = (props) => {
   const foods = props.foods;
-  // console.log(foods)
-  // console.log(props.match.params.id)
-  const food = foods.filter((f) => f._id === props.match.params.id);
-  // const food = foods.find((f) => f._id === props.match.params.id);
+ const food = foods.find((f) => f._id === props.match.params.id);
   
-  console.log("food is ", food)
-  console.log(food.name)
     return (
     <div>
       <Link className="btn btn-light my-3" to="/">
