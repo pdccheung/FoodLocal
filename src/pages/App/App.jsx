@@ -12,6 +12,7 @@ import HomePage from "../../pages/HomePage/Home";
 export default class App extends Component {
   state = {
     user: null,
+    foods: [],
   };
 
   setUserInState = (incomingUserData) => {
@@ -19,11 +20,17 @@ export default class App extends Component {
   };
 
   componentDidMount() {
+    this.getFoods();
     let token = localStorage.getItem("token");
     if (token) {
       let userDoc = JSON.parse(atob(token.split(".")[1])).user; // decode jwt token
       this.setState({ user: userDoc });
     }
+
+  }
+
+  getFoods = async () => {
+    await fetch("/api/foods").then((res) => res.json()).then(data => this.setState({foods: data}))
   }
 
   render() {
@@ -32,10 +39,10 @@ export default class App extends Component {
         <Header />
         <main className="py-3">
           <Container>
-            <Route exact path="/" render={(props) => <HomePage {...props} />} />
+            <Route exact path="/" render={(props) => <HomePage {...props} foods={this.state.foods}/>} />
             <Route
               path="/food/:id"
-              render={(props) => <Food {...props} />}
+              render={(props) => <Food {...props} foods={this.state.foods} />}
             />
             {this.state.user ? (
               <Switch>

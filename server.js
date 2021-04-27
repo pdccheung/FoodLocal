@@ -2,8 +2,9 @@ const express = require('express');
 const path = require('path');
 const favicon = require('serve-favicon');
 const logger = require('morgan');
+const { request } = require('http');
+const foods = require('./models/Foodlist')
 require('dotenv').config();
-
 require('./config/database');
 
 const app = express();
@@ -20,9 +21,23 @@ app.listen(port, function() {
   console.log(`Express app running on port ${port}`)
 });
 
+// below are api calls to fake db
 
-app.get('/*', function(req, res) {
-    res.sendFile(path.join(__dirname, 'build', 'index.html'));
-  });
+app.get('/api/foods', (req, res) => {
+  res.json(foods)
+}
+)
+
+app.get('/api/foods/:id', (req, res) => {
+  const food = foods.find((f) => f._id === req.params.id);
+  res.json(food)
+}
+)
+// above is api calls to fake db
+
 
   app.use('/api/users', require('./routes/api/users'));
+  
+  // app.get('/*', function(req, res) {
+  //   res.sendFile(path.join(__dirname, 'build', 'index.html'));
+  // });

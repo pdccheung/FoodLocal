@@ -2,16 +2,23 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { Row, Col, Image, ListGroup} from "react-bootstrap";
 import Rating from "../../components/Rating/Rating";
-import foods from "../../Foodlist";
+// import foods from "../../Foodlist"
+
 
 const Food = (props) => {
-  const food = foods.find((f) => f._id === props.match.params.id);
-  return (
+  const foods = props.foods;
+  // console.log(foods)
+  // console.log(props.match.params.id)
+  const food = foods.filter((f) => f._id === props.match.params.id);
+  // const food = foods.find((f) => f._id === props.match.params.id);
+  
+  console.log("food is ", food)
+  console.log(food.name)
+    return (
     <div>
       <Link className="btn btn-light my-3" to="/">
-          <i class="fas fa-long-arrow-alt-left"> Home
+          <i className="fas fa-long-arrow-alt-left"> Home
           </i>
-
       </Link>
       <Row>
         <Col md={8}>
