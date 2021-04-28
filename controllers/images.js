@@ -1,26 +1,11 @@
-const Food = require('../models/food')
-const asyncHandler = require("express-async-handler")
-const aws = require('aws-sdk')
-const multer = require('multer')
-const multerS3 = require('multer-s3')
-const uuid = require('uuid')
-require('dotenv').config();
+// not used 
 
+// const aws = require('aws-sdk')
+// const multer = require('multer')
+// const multerS3 = require('multer-s3')
+// const uuid = require('uuid')
+// require('dotenv').config();
 
-module.exports = {
-    index,
-    create
-    // uploadImageToS3: (req, res) => {
-    //     uploadToS3(req, res).then(downloadURL => {
-    //         console.log(downloadURL)
-    //         return res.status(200).json({downloadURL})
-
-    //     })
-    //     .catch (e => {
-    //         console.log(e)
-    //     })
-    // }
-}
 // aws.config.update(
 //     {
 //         accessKeyId: process.env.AWS_ACCESS_KEY,
@@ -58,19 +43,9 @@ module.exports = {
 //     })
 //   }
 
-  
-// bucket name = foodlocal-assets
-
-async function index(req, res) {
-    const foods = await Food.find({})
-    res.json(foods)
-}
 
 
-async function create(req, res) {
-    console.log(req.body)
-    let newFood = await Food.create(req.body);
-    await newFood.save();
-    const foods = await Food.find({})
-    res.json(foods)
-}
+
+// module.exports = {
+//     uploadToS3
+// }

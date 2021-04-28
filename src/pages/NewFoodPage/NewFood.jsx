@@ -8,7 +8,9 @@ class NewFood extends Component {
     rating: 3,
     price: 0,
     description: "",
+    restaurant: "",
   };
+
 
   handleChange = (e) => {
     this.setState({ [e.target.name]: e.target.value });
@@ -49,11 +51,11 @@ handleSubmit = async (props) => {
       <div className="new-food">
         {" "}
         <h1>Add new food item here</h1>
-        Name: <input name="name" onChange={this.handleChange}  />
+        Name: <input name="name" onChange={this.handleChange} required />
         <br />
         <br />
         Rating:{" "}
-        <select name="rating" onChange={this.handleChange} requireds>
+        <select name="rating" onChange={this.handleChange} required>
           <option value="1">1</option>
           <option value="2">2</option>
           <option value="3">3</option>
@@ -62,7 +64,8 @@ handleSubmit = async (props) => {
         </select>
         <br />
         <br />
-        Price:  <input type="number" name="price" pattern="[0-9]*" onChange={this.handleChange}/><br />
+        Restaurant: <input name="restaurant" onChange={this.handleChange} required /> <br />
+        Price:  <input type="number" name="price" pattern="[0-9]*" onChange={this.handleChange} required/><br />
         Description:{" "}
         <textarea
           name="description"

@@ -19,7 +19,7 @@ const port = process.env.PORT || 3001;
 app.listen(port, function() {
   console.log(`Express app running on port ${port}`)
 });
-
+app.use('/api/images', require('./routes/api/images'));
 app.use('/api/foods', require('./routes/api/foods'));
 app.use('/api/users', require('./routes/api/users'));
   

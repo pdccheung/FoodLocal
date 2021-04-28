@@ -8,6 +8,7 @@ import NewFood from "../NewFoodPage/NewFood";
 import Header from "../../components/Header/Header";
 import Footer from "../../components/Footer/Footer";
 import HomePage from "../../pages/HomePage/Home";
+import Images from "../ImagesPage/ImagesPage";
 
 export default class App extends Component {
   state = {
@@ -26,13 +27,14 @@ export default class App extends Component {
       let userDoc = JSON.parse(atob(token.split(".")[1])).user; // decode jwt token
       this.setState({ user: userDoc });
     }
-
   }
 
   // fetch food data from mongoose db
   getFoods = async () => {
-    await fetch("/api/foods").then((res) => res.json()).then(data => this.setState({foods: data}))
-  }
+    await fetch("/api/foods")
+      .then((res) => res.json())
+      .then((data) => this.setState({ foods: data }));
+  };
 
   render() {
     return (
@@ -40,7 +42,13 @@ export default class App extends Component {
         <Header />
         <main className="py-3">
           <Container>
-            <Route exact path="/" render={(props) => <HomePage {...props} foods={this.state.foods}/>} />
+            <Route
+              exact
+              path="/"
+              render={(props) => (
+                <HomePage {...props} foods={this.state.foods} />
+              )}
+            />
             <Route
               path="/food/:id"
               render={(props) => <Food {...props} foods={this.state.foods} />}
@@ -48,7 +56,13 @@ export default class App extends Component {
 
             {this.state.user ? (
               <Switch>
-                <Route exact path="/" render={(props) => <HomePage {...props} foods={this.state.foods} />} />
+                <Route
+                  exact
+                  path="/"
+                  render={(props) => (
+                    <HomePage {...props} foods={this.state.foods} />
+                  )}
+                />
                 {/* route for Food is not needed for now, as Food/:id will serve the component */}
                 {/* <Route path="/food" render={(props) => <Food {...props} />} /> */}
                 <Route
@@ -58,7 +72,15 @@ export default class App extends Component {
                 />
                 <Route
                   path="/userfood/new"
-                  render={(props) => <NewFood {...props} getFoods={this.getFoods} />}
+                  render={(props) => (
+                    <NewFood {...props} getFoods={this.getFoods} />
+                  )}
+                />
+                <Route
+                  path="/images"
+                  render={(props) => (
+                    <Images {...props} />
+                  )}
                 />
                 {/* and in case nothing matches, we redirect: */}
                 <Redirect to="/food" />
