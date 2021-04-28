@@ -14,9 +14,9 @@ class Images extends Component {
 	onFileUpload = () => {
 	const formData = new FormData();
 	formData.append(
-		"myFile",
-		this.state.selectedFile
-		// this.state.selectedFile.name
+		"image",
+		this.state.selectedFile,
+		this.state.selectedFile.name
 	);
     const options = {
         method: "POST",
