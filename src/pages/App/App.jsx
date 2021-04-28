@@ -39,7 +39,7 @@ export default class App extends Component {
   render() {
     return (
       <>
-        <Header />
+        <Header user={this.state.user}/>
         <main className="py-3">
           <Container>
             <Route
@@ -53,16 +53,18 @@ export default class App extends Component {
               path="/food/:id"
               render={(props) => <Food {...props} foods={this.state.foods} />}
             />
+           
+           <Route path="/login" render={(props) => <AuthPage {...props} setUserInState={this.setUserInState} /> } />
 
             {this.state.user ? (
               <Switch>
-                <Route
+                {/* <Route
                   exact
                   path="/"
                   render={(props) => (
                     <HomePage {...props} foods={this.state.foods} />
                   )}
-                />
+                /> */}
                 {/* route for Food is not needed for now, as Food/:id will serve the component */}
                 {/* <Route path="/food" render={(props) => <Food {...props} />} /> */}
                 <Route
@@ -83,10 +85,10 @@ export default class App extends Component {
                   )}
                 />
                 {/* and in case nothing matches, we redirect: */}
-                <Redirect to="/food" />
+                <Redirect to="/" />
               </Switch>
-            ) : (
-              <AuthPage setUserInState={this.setUserInState} />
+            ) : ( null
+              // <AuthPage setUserInState={this.setUserInState} />
             )}
           </Container>
         </main>
