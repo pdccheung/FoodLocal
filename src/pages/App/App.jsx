@@ -66,7 +66,7 @@ getCoordinates = (position) => {
 }
 
 reverseGeocodeCoords = () => {
-  fetch(``)
+  fetch("")
   .then(response => {response.json()})
   .then(data => console.log(data)
     // this.setState({
