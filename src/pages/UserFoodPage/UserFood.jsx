@@ -13,7 +13,7 @@ const UserFoodPage =  async (props) => {
 
     return (
         <div>
-        <h1> Your food posts: </h1>
+        <h1> Here is your local food tour: </h1>
         <Row>
             {foods.length ? 
             foods.map(food => (
@@ -32,26 +32,3 @@ const UserFoodPage =  async (props) => {
 
 export default UserFoodPage
 
-
-// class UserFoodPage extends Component {
-
-//     render(props) { 
-//         const foods = props.foods;
-//            console.log(foods)
-//         return(
-//             <div>
-//                 <h1>User Food Page</h1>
-
-
-// {/* 
-//                 <Link to="/food" className="button btn-sm">All food</Link><br /><br />
-//                 <Link to="/userfood/new" className="button btn-sm">Add Food</Link><br /><br />
-//                 <UserLogOut /> */}
-
-
-//             </div>
-//         )
-//     }
-// }
-
-// export default UserFoodPage
