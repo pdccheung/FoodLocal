@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import {Image, Form, Button, Container} from "react-bootstrap";
+import {Image, Form, Button, Container, Row, Col} from "react-bootstrap";
 
 class NewFood extends Component {
   state = {
@@ -56,8 +56,11 @@ class NewFood extends Component {
     if (this.state.imageUrl) {
       return (
    <Container> 
-        <Image  src={this.state.imageUrl} rounded fluid></Image>
-    
+  <Row>
+    <Col xs={6} md={4}>
+      <Image src={this.state.imageUrl} rounded fluid/>
+    </Col>
+    </Row>
    </Container>
  
       );

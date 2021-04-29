@@ -9,25 +9,33 @@ import Header from "../../components/Header/Header";
 import Footer from "../../components/Footer/Footer";
 import HomePage from "../../pages/HomePage/Home";
 import Images from "../ImagesPage/ImagesPage";
+import { getCurrentLatLng } from "../../services/geolocation";
+import Map from "../MapPage/Map"
+
 
 export default class App extends Component {
   state = {
     user: null,
-    foods: [],
+    foods: [],    
+    lat: null,
+    lng: null,
   };
 
   setUserInState = (incomingUserData) => {
     this.setState({ user: incomingUserData });
   };
 
-  componentDidMount() {
+  async componentDidMount() {
     this.getFoods();
     let token = localStorage.getItem("token");
     if (token) {
       let userDoc = JSON.parse(atob(token.split(".")[1])).user; // decode jwt token
       this.setState({ user: userDoc });
     }
+    const {lat, lng} = await getCurrentLatLng();
+    this.setState({lat, lng});
   }
+
 
   // fetch food data from mongoose db
   getFoods = async () => {
@@ -55,6 +63,8 @@ export default class App extends Component {
             />
            
            <Route path="/login" render={(props) => <AuthPage {...props} setUserInState={this.setUserInState} /> } />
+
+           <Route path="/map" render={(props) => <Map lat={this.state.lat} lng={this.state.lng} />} />
 
             {this.state.user ? (
               <Switch>
@@ -90,6 +100,7 @@ export default class App extends Component {
             ) : ( null
               // <AuthPage setUserInState={this.setUserInState} />
             )}
+ <Map lat={this.state.lat} lng={this.state.lng} />
           </Container>
         </main>
         <Footer />
