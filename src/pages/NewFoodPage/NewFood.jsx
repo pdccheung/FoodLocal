@@ -1,7 +1,5 @@
 import React, { Component } from "react";
-// import UserLogOut from "../../components/UserLogOut/UserLogOut";
-// import { Link } from "react-router-dom";
-import Image from "react-bootstrap/Image";
+import {Image, Form, Button, Container} from "react-bootstrap";
 
 class NewFood extends Component {
   state = {
@@ -57,9 +55,11 @@ class NewFood extends Component {
   displayImage = () => {
     if (this.state.imageUrl) {
       return (
-        <div>
-          <Image src={this.state.imageUrl} fluid></Image>
-        </div>
+   <Container> 
+        <Image  src={this.state.imageUrl} rounded fluid></Image>
+    
+   </Container>
+ 
       );
     } else {
       return ( null
@@ -77,6 +77,7 @@ class NewFood extends Component {
       name: this.state.name,
       rating: this.state.rating,
       price: this.state.price,
+      restaurant: this.state.restaurant,
       description: this.state.description,
       imageUrl: this.state.imageUrl,
     };
@@ -107,53 +108,53 @@ class NewFood extends Component {
   };
 
   render() {
+
     return (
       <div className="new-food">
-        {" "}
-        <h1>Add new food item here</h1>
-        <div>
-          <input type="file" onChange={this.onFileChange} />
-          <button onClick={this.onFileUpload}>Upload!</button>
-        </div><br /><br />
-        <div>{this.displayImage()}</div>
-        <br />
-        <br />
-        Name: <input name="name" onChange={this.handleChange} required />
-        <br />
-        <br />
-        Rating:{" "}
-        <select name="rating" onChange={this.handleChange} required>
-          <option value="1">1</option>
-          <option value="2">2</option>
-          <option value="3">3</option>
-          <option value="4">4</option>
-          <option value="5">5</option>
-        </select>
-        <br />
-        <br />
-        Restaurant:{" "}
-        <input name="restaurant" onChange={this.handleChange} required /> <br />
-        Price:{" "}
-        <input
-          type="number"
-          name="price"
-          pattern="[0-9]*"
-          onChange={this.handleChange}
-          required
-        />
-        <br />
-        Description:{" "}
-        <textarea
-          name="description"
-          onChange={this.handleChange}
-          value={this.state.content}
-        ></textarea>{" "}
-        <br />
-        <br />
-        <button onClick={this.handleSubmit}>Submit!</button>
-      </div>
-    );
-  }
+    <Form>
+
+  <Form.Group>
+    <Form.File onChange={this.onFileChange} id="image-upload" label="Select a photo of your meal"/>
+<br />
+    <Button variant="primary" onClick={this.onFileUpload}>Upload </Button>{' '}
+ </Form.Group> <br />
+ <div>{this.displayImage()}</div><br />
+  <Form.Group controlId="meal.name">
+    <Form.Label>Meal name</Form.Label>
+    <Form.Control  placeholder="e.g. Tom yum soup" name="name" onChange={this.handleChange} required />
+  </Form.Group>
+  <Form.Group controlId="meal.restaurant">
+    <Form.Label>Restaurant Name</Form.Label>
+    <Form.Control  placeholder="e.g. Jatujak" name="restaurant" onChange={this.handleChange} required />
+  </Form.Group>
+  <Form.Group controlId="meal.price">
+    <Form.Label>How much did it cost? (approx. dollar amount)</Form.Label>
+    <br />
+    <input name="price" onChange={this.handleChange}  type="number"  pattern="[0-9]*" required/> <br />
+  </Form.Group>
+  <Form.Group controlId="meal.rating">
+    <Form.Label>Rate your meal</Form.Label>
+    <Form.Control as="select" name="rating" onChange={this.handleChange} required>
+      <option>1</option>
+      <option>2</option>
+      <option>3</option>
+      <option>4</option>
+      <option>5</option>
+    </Form.Control>
+  </Form.Group>
+  <Form.Group controlId="meal.description">
+    <Form.Label>How would you describe your meal? (briefly)</Form.Label>
+    <Form.Control name="description" onChange={this.handleChange} as="textarea"  placeholder="e.g. Spicy and sour, perfect for a mid Autumn dinner" rows={3} />
+  </Form.Group>
+</Form>
+<Button onClick={this.handleSubmit}>Submit!</Button>
+</div>
+
+
+
+
+)
+    }
 }
 
 export default NewFood;

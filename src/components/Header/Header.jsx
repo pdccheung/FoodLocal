@@ -30,10 +30,10 @@ const Header = (props) => {
             </NavDropdown> : null
             }
             <LinkContainer to="/userfood"> 
-            <Nav.Link className="button btn-sm">My Food items</Nav.Link>
+            <Nav.Link className="button btn-sm">My Meals</Nav.Link>
             </LinkContainer>
             <LinkContainer to="/userfood/new">
-            <Nav.Link className="button btn-sm">Add Food</Nav.Link>
+            <Nav.Link className="button btn-sm">Add a meal</Nav.Link>
              </LinkContainer>
                 
             {/* <LinkContainer to="/signup">
