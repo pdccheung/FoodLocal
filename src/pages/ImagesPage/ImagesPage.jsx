@@ -1,4 +1,8 @@
 
+// POST to /api/images 
+
+// No longer valid
+
 import React,{Component} from 'react';
 
 class Images extends Component {
@@ -11,8 +15,10 @@ class Images extends Component {
 	this.setState({ selectedFile: event.target.files[0] });
 	};
 
+
 	onFileUpload = () => {
 	const formData = new FormData();
+	let someStr = null;
 	formData.append(
 		"image",
 		this.state.selectedFile,
@@ -23,12 +29,20 @@ class Images extends Component {
         body: formData
       };
 
-	console.log(this.state.selectedFile);
+	console.log(this.state.selectedFile.name);
 
-	fetch("api/images", options)
-	.then(response => response.text())
-	.catch(error => console.log('error', error));
-	};
+	  fetch("/api/images", options)
+	  .then(response => response.json()
+	  .then(data => ({
+			data: data,
+			status: response.status
+		})
+	).then(res => { someStr = res.data.imageUrl}
+	)).then(() => console.log("Image URL is ",someStr))
+	.catch(error => console.log('error', error));	
+};
+	
+	
 	
 	// File content to be displayed after
 	// file upload is complete
@@ -58,7 +72,6 @@ class Images extends Component {
 	render() {
 	return (
 		<div>
-
 			<h3>
             Uploading images to S3
 			</h3>

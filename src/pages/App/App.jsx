@@ -70,16 +70,16 @@ export default class App extends Component {
                 <Route
                   exact
                   path="/userfood"
-                  render={(props) => <UserFood {...props} />}
+                  render={(props) => <UserFood {...props} foods={this.state.foods} user={this.state.user}/>}
                 />
                 <Route
                   path="/userfood/new"
                   render={(props) => (
-                    <NewFood {...props} getFoods={this.getFoods} />
+                    <NewFood {...props} getFoods={this.getFoods} user={this.state.user}/>
                   )}
                 />
                 <Route
-                  path="/images"
+                  path="/api/images"
                   render={(props) => (
                     <Images {...props} />
                   )}

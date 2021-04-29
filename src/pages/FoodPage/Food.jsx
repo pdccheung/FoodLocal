@@ -6,7 +6,7 @@ import Rating from "../../components/Rating/Rating";
 const Food = (props) => {
   const foods = props.foods;
   const food = foods.find((f) => f._id === props.match.params.id);
-
+  console.log("food is defined as", food)
   return (
     <div>
       <Link className="btn btn-light my-3" to="/">
@@ -14,7 +14,7 @@ const Food = (props) => {
       </Link>
       <Row>
         <Col md={8}>
-          <Image fluid src={food.image} alt={food.name} />
+          <Image fluid src={food.imageUrl} alt={food.name} />
         </Col>
         <Col md={4}>
           <ListGroup variant="flush">

@@ -1,15 +1,15 @@
-import { token } from "morgan";
+// import { token } from "morgan";
 import React from "react";
 import { Container, Navbar, Nav, NavDropdown } from "react-bootstrap";
-import { LinkContainer } from "react-router-bootstrap"
+import { LinkContainer } from "react-router-bootstrap";
+import UserLogOut from "../UserLogOut/UserLogOut";
 
 const Header = (props) => {
   const user = props.user
-  console.log(user)
 
-  const logoutHandler = () => {
-    localStorage.removeItem(token)
-  }
+  // const logoutHandler = () => {
+  //   localStorage.removeItem(token)
+  // }
 
   return (
   <header>
@@ -26,7 +26,7 @@ const Header = (props) => {
             </LinkContainer>   
             { user ?
             <NavDropdown title={user.name} id='username'>
-              <NavDropdown.Item onClick={logoutHandler}>Logout</NavDropdown.Item>
+              <NavDropdown.Item> <UserLogOut/> </NavDropdown.Item>
             </NavDropdown> : null
             }
             <LinkContainer to="/userfood"> 
@@ -39,7 +39,6 @@ const Header = (props) => {
             {/* <LinkContainer to="/signup">
             <Nav.Link><i className="far fa-user"> Sign up</i></Nav.Link>
             </LinkContainer> */}
-
 
             <LinkContainer to="/login">
             <Nav.Link><i class="fas fa-sign-in-alt"> Login</i></Nav.Link>

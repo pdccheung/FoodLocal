@@ -11,6 +11,7 @@ const foodSchema = new Schema({
     user: { type: Schema.Types.ObjectId, ref: 'User' },
     price: {type: Number, required: true, default: 0},
     description: {type: String, default: "delicious"},
+    imageUrl: {type: String},
 })
 
 
@@ -25,5 +26,11 @@ const imageSchema = new Schema({
     }
 })
 
-let Image = mongoose.model('Image', imageSchema)
-module.exports = mongoose.model('Food', foodSchema)
+const Image = mongoose.model('Image', imageSchema)
+const Food = mongoose.model('Food', foodSchema)
+module.exports = {
+    Image,
+    Food
+}
+// let Image = mongoose.model('Image', imageSchema)
+// module.exports = mongoose.model('Food', foodSchema)

@@ -7,7 +7,7 @@ const FoodItem = (props) => {
   return (
     <Card className="my-3 p-3 rounded">
       <Link to={`/food/${props.food._id}`}>
-        <Card.Img src={props.food.image} variant="top" />
+        <Card.Img src={props.food.imageUrl} variant="top" />
       </Link>
       <Card.Body>
         <Link to={`/food/${props.food._id}`}>

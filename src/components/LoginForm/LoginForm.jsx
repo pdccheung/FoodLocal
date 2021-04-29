@@ -1,5 +1,6 @@
 import { Component } from 'react';
 
+
 export default class SignUpForm extends Component {
   state = {
     email: '',
@@ -49,6 +50,7 @@ export default class SignUpForm extends Component {
             <label>Password</label>
             <input type="password" name="password" value={this.state.password} onChange={this.handleChange} required />
             <button type="submit">LOG IN</button>
+
           </form>
         </div>
         <p className="error-message">&nbsp;{this.state.error}</p>
