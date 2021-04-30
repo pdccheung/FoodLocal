@@ -29,16 +29,16 @@ Excited? try it out, [sign up now!](https://foodlocal.herokuapp.com/login) :grin
 
 ### Some screenshots <a name="screenshots"></a>
 ###### Main landing page:
-<img src="https://foodlocal-assets.s3.amazonaws.com/Main+landing+page.png" width=300 align=left >
+<img src="https://foodlocal-assets.s3.amazonaws.com/Main+landing+page.png" width=300 >
 
 ###### Food details page:
-<img src="https://foodlocal-assets.s3.amazonaws.com/Food+Show+page.png" width=300 align=right>
+<img src="https://foodlocal-assets.s3.amazonaws.com/Food+Show+page.png" width=300 >
 
 ###### New food form:
-<img src="https://foodlocal-assets.s3.amazonaws.com/New+food+posting+form.png" width=300 align=left>
+<img src="https://foodlocal-assets.s3.amazonaws.com/New+food+posting+form.png" width=300 >
 
 ###### Desktop home page:
-<img src="https://foodlocal-assets.s3.amazonaws.com/Desktop+home+view.png" width=300 align=right>
+<img src="https://foodlocal-assets.s3.amazonaws.com/Desktop+home+view.png" width=300 >
 
 ###### Entity-Relationship Model <a name="ERD"></a>
 <img src="https://foodlocal-assets.s3.amazonaws.com/ERD_model.png" height=300 width=300>
