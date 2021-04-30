@@ -7,7 +7,6 @@ import FoodItem from "../../components/FoodItem/FoodItem"
 
 const HomePage = (props) => {
     const foods = props.foods
-    console.log(foods)
 
     return (
         <>

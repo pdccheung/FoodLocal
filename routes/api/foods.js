@@ -9,13 +9,6 @@ router.get('/', foodCtrl.index)
 router.post('/', foodCtrl.create)
 
 
-// router.get('/:id', foodCtrl.index)
-
-// router.get('/', asyncHandler(async (req, res) => {
-//     const foods = await Food.find({})
-//     res.json(foods)
-//   }
-//   ))
   
   router.get('/:id', asyncHandler(async (req, res) => {
     const food = await Food.findById(req.params.id)
@@ -26,6 +19,19 @@ router.post('/', foodCtrl.create)
     }
   }
   ))
+
+
+  // Use this function to find food by userID, and res.json the data
+
+  // router.get('/:userid', asyncHandler(async (req, res) => {
+  //   const userFood = await Food.find({user: req.params.userid})
+  //   if (food) {
+  //        res.json(food)
+  //   } else {
+  //       res.status(404).json({ message: "User food item not found"})
+  //   }
+  // }
+  // ))
 
 
 module.exports = router;
