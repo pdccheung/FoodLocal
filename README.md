@@ -1,70 +1,70 @@
-# Getting Started with Create React App
+# FoodLocal
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Eat great food locally!:fork_and_knife: 
 
-## Available Scripts
 
-In the project directory, you can run:
+# Table of contents
+1. [Link to the web app](#link)
+2. [About FoodLocal](#about)
+    1. [Screenshots](#screenshots)
+    2. [Entity-Relationship Model](#ERD)
+    3. [Github Projects](#trello)
 
-### `npm start`
+3. [Technologies Used](#technology)
+4. [Future Enhancements](#futureenhancement)
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+## Web app Link <a name="link"></a>
+[Click here to FoodLocal](https://foodlocal.herokuapp.com/)
 
-### `npm test`
+## About FoodLocal <a name="about"></a>
+:meat_on_bone::bento: ## About FoodLocal <a name="about"></a> :hamburger::doughnut:
+This app will enable its users to find great local restaurant foods items:fork_and_knife:, as crowdsourced, and recommended by other users. 
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+A good use case can be for times when you travel to areas within your town, city :city_sunrise:, or another country entirely :airplane::tokyo_tower::tokyo_tower::airplane:, where you are not familiar with the local food scene. 
 
-### `npm run build`
+Additionally, you can post your own meals that you really like, so that others can discover your favourite meals. Feel free to revisit your past posts, and revisit your favourite meals :yum::yum::spaghetti::ramen:
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Excited? try it out, [sign up now!](https://foodlocal.herokuapp.com/login) :grinning:
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### Some screenshots <a name="screenshots"></a>
+Main landing page:
+<img src="https://foodlocal-assets.s3.amazonaws.com/Main+landing+page.png" width=300 align=left>
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Food details page:
+<img src="https://foodlocal-assets.s3.amazonaws.com/Food+Show+page.png" width=300 align=right>
 
-### `npm run eject`
+New food form:
+<img src="https://foodlocal-assets.s3.amazonaws.com/New+food+posting+form.png" width=300 align=left>
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+Desktop home page:
+<img src="https://foodlocal-assets.s3.amazonaws.com/Desktop+home+view.png" width=300 align=right>
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### Entity-Relationship Model <a name="ERD"></a>
+<img src="https://foodlocal-assets.s3.amazonaws.com/ERD_model.png" height=300 width=300>
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+### Github Projects <a name="trello"></a>
+Github Projects was used to organize and manage the project "trello" board
+[Github Projects]
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+## Dev Tools Used <a name="technology"></a>
+* HTML 5
+* CSS 3
+* Mongoose
+* Express
+* React
+* Node.js
+* React-bootstrap
+* AWS S3 storage
+* Hosted on Heroku
+* npm packages: multer, multer-3, aws-sdk
 
-## Learn More
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## Future Enhancements <a name="futureenhancement"></a>
+- link restaurants model to food model
+- create geolocation data with restaurant
+- search bar to navigate the food scene locally 
+- allow users to define the radius of their nearby restaurants
+- home page automatically shows local food items near users
 
-To learn React, check out the [React documentation](https://reactjs.org/).
 
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
