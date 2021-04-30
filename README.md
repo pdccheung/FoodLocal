@@ -57,6 +57,7 @@ Github Projects was used to organize and manage the project "trello" board
 * React-bootstrap
 * AWS S3 storage
 * Hosted on Heroku
+* API testing using Postman
 * npm packages: multer, multer-3, aws-sdk
 
 
