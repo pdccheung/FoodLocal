@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import {Image, Form, Button, Container, Row, Col} from "react-bootstrap";
+import { Redirect } from "react-router-dom";
 
 class NewFood extends Component {
   state = {
@@ -10,16 +11,19 @@ class NewFood extends Component {
     restaurant: "",
     imageUrl: "",
     selectedFile: null,
+    redirect: false,
   };
-  // Image uploader
+
+  // Image uploader for the latest user input
   onFileChange = (event) => {
     this.setState({ selectedFile: event.target.files[0] });
   };
 
-  // Other form data
+  // Set state based on user input
   handleChange = (e) => {
     this.setState({ [e.target.name]: e.target.value });
   };
+
   onFileUpload = () => {
     const formData = new FormData();
     formData.append(
@@ -66,16 +70,12 @@ class NewFood extends Component {
       );
     } else {
       return ( null
-        // <div>
-        //   <br />
-        //   <h5></h5>
-        // </div>
       );
     }
   };
 
   handleSubmit = async (props) => {
-    // First we build the body
+    const userId = (this.props.user)._id; 
     let body = {
       name: this.state.name,
       rating: this.state.rating,
@@ -83,8 +83,9 @@ class NewFood extends Component {
       restaurant: this.state.restaurant,
       description: this.state.description,
       imageUrl: this.state.imageUrl,
+      user: userId,
     };
-    // We need an options object for our fetch call
+    // use as options as object for post-fetch call
     let options = {
       method: "POST",
       headers: {
@@ -92,13 +93,11 @@ class NewFood extends Component {
       },
       body: JSON.stringify(body),
     };
-    // Now for the fetch call
+    // fetch call with the above options 
     await fetch("/api/foods", options)
       .then((res) => res.json())
       .then((data) => {
-        // Call our getFoods function to get fresh data
         this.props.getFoods();
-        // clear out this.state.everything
         this.setState({
           name: "",
           rating: 3,
@@ -107,15 +106,13 @@ class NewFood extends Component {
           imageUrl: "",
           selectedFile: null,
         });
-      });
+      }).then(() => {this.setState({ redirect: true })});
   };
 
   render() {
-
     return (
       <div className="new-food">
     <Form>
-
   <Form.Group>
     <Form.File onChange={this.onFileChange} id="image-upload" label="Select a photo of your meal"/>
 <br />
@@ -151,10 +148,8 @@ class NewFood extends Component {
   </Form.Group>
 </Form>
 <Button onClick={this.handleSubmit}>Submit!</Button>
+{ this.state.redirect ? (<Redirect push to="/"/>) : null }
 </div>
-
-
-
 
 )
     }
