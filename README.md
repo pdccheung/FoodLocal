@@ -28,19 +28,19 @@ Additionally, you can post your own meals that you really like, so that others c
 Excited? try it out, [sign up now!](https://foodlocal.herokuapp.com/login) :grinning:
 
 ### Some screenshots <a name="screenshots"></a>
-Main landing page:
-<img src="https://foodlocal-assets.s3.amazonaws.com/Main+landing+page.png" width=300 >
+###### Main landing page:
+<img src="https://foodlocal-assets.s3.amazonaws.com/Main+landing+page.png" width=300 align=left >
 
-Food details page:
-<img src="https://foodlocal-assets.s3.amazonaws.com/Food+Show+page.png" width=300 >
+###### Food details page:
+<img src="https://foodlocal-assets.s3.amazonaws.com/Food+Show+page.png" width=300 align=right>
 
-New food form:
-<img src="https://foodlocal-assets.s3.amazonaws.com/New+food+posting+form.png" width=300 >
+###### New food form:
+<img src="https://foodlocal-assets.s3.amazonaws.com/New+food+posting+form.png" width=300 align=left>
 
-Desktop home page:
+###### Desktop home page:
 <img src="https://foodlocal-assets.s3.amazonaws.com/Desktop+home+view.png" width=300 align=right>
 
-### Entity-Relationship Model <a name="ERD"></a>
+###### Entity-Relationship Model <a name="ERD"></a>
 <img src="https://foodlocal-assets.s3.amazonaws.com/ERD_model.png" height=300 width=300>
 
 ### Github Projects <a name="trello"></a>
