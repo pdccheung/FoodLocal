@@ -18,7 +18,7 @@ Eat great food locally!:fork_and_knife:
 [Click here to FoodLocal](https://foodlocal.herokuapp.com/)
 
 ## About FoodLocal <a name="about"></a>
-:meat_on_bone::bento: ## About FoodLocal <a name="about"></a> :hamburger::doughnut:
+:meat_on_bone::bento: :hamburger::doughnut:
 This app will enable its users to find great local restaurant foods items:fork_and_knife:, as crowdsourced, and recommended by other users. 
 
 A good use case can be for times when you travel to areas within your town, city :city_sunrise:, or another country entirely :airplane::tokyo_tower::tokyo_tower::airplane:, where you are not familiar with the local food scene. 
