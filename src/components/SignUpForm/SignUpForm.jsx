@@ -1,5 +1,6 @@
 import { Component } from 'react';
 import { Form, Button  } from 'react-bootstrap';
+import { Redirect } from "react-router-dom";
 
 export default class SignUpForm extends Component {
   state = {
@@ -7,7 +8,8 @@ export default class SignUpForm extends Component {
     email: '',
     password: '',
     confirm: '',
-    error: ''
+    error: '',
+    redirect: false,
   };
 
   handleChange = (evt) => {
@@ -20,25 +22,19 @@ export default class SignUpForm extends Component {
   handleSubmit = async (evt) => {
     evt.preventDefault();
     try {
-      // 1. POST our new user info to the server
       const fetchResponse = await fetch('/api/users/signup', {
         method: 'POST',
         headers: {"Content-Type": "application/json"},
         body: JSON.stringify({name: this.state.name, email: this.state.email, password: this.state.password,})
       })
-      
-      // 2. Check "fetchResponse.ok". False means status code was 4xx from the server/controller action
       if (!fetchResponse.ok) throw new Error('Fetch failed - Bad request')
-      
-      let token = await fetchResponse.json() // 3. decode fetch response to get jwt from srv
-      localStorage.setItem('token', token);  // 4. Stick token into localStorage
-      
-      const userDoc = JSON.parse(atob(token.split('.')[1])).user; // 5. Decode the token + put user document into state
+      let token = await fetchResponse.json() 
+      localStorage.setItem('token', token); 
+      const userDoc = JSON.parse(atob(token.split('.')[1])).user;
       this.props.setUserInState(userDoc)
-
-    } catch (err) {
-
-      console.log("SignupForm error", err)
+      this.setState({redirect: true})
+    }
+     catch (err) {
       this.setState({ error: 'Sign Up Failed - Try Again' });
     }
   }
@@ -92,6 +88,7 @@ export default class SignUpForm extends Component {
             <Button type="submit" disabled={disable}>Sign me up! </Button>
        </Form>
        <p className="error-message">&nbsp;{this.state.error}</p>
+       { this.state.redirect ? (<Redirect push to="/"/>) : null }
       </div>
       </div>
     );
